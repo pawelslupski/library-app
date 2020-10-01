@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <table class="table table-striped cs-table">
+      <table *ngIf="books && books.length > 0; else noBooksInfo" class="table table-striped cs-table">
         <thead>
           <tr>
             <th>ISBN</th>
@@ -29,6 +29,11 @@
           </tr>
         </tbody>
       </table>
+      <ng-template #noBooksInfo>
+        <div class="no-books-info">
+          <p>Currently there are no books in library</p>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
