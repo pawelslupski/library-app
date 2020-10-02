@@ -9,21 +9,21 @@
             <th>author</th>
             <th>genres</th>
             <th>pages</th>
-            <th>releaseDate</th>
-            <th>isBorrowed</th>
+            <th>release date</th>
+            <th>available</th>
             <th>client</th>
             <th>action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let book of books">
+          <tr *ngFor="let book of books" class="row-book" [routerLink]="['/books', book.id]">
             <td> {{ book.ISBN }} </td>
             <td> {{ book.title }} </td>
             <td> {{ book.author }} </td>
             <td> {{ book.genres }} </td>
             <td> {{ book.pages }} </td>
             <td> {{ book.releaseDate }} </td>
-            <td> {{ book.isBorrowed }} </td>
+            <td> {{ !book.isBorrowed }} </td>
             <td> {{ book.clientFirstName }} {{ book.clientLastName }} </td>
             <td> ACTION PLACEHOLDER </td>
           </tr>
@@ -34,6 +34,14 @@
           <p>Currently there are no books in library</p>
         </div>
       </ng-template>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <button (click)="openNewBokModal()" mat-raised-button color="primary" id="create-book-btn" class="float-right">Add</button>
     </div>
   </div>
 </div>

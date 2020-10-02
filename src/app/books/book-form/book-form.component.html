@@ -1,0 +1,44 @@
+<form [formGroup]="bookForm">
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="ISBN" placeholder="ISBN" #ISBNInput>
+                <mat-error *ngIf="bookForm.get('ISBN').hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="bookForm.get('ISBN').hasError('minlength')">Min length is 13 chars</mat-error>
+                <mat-error *ngIf="bookForm.get('ISBN').hasError('maxlength')">Max length is 13 chars</mat-error>
+                <mat-hint align="end">{{ ISBNInput.value.length }} / 13</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="title" placeholder="Title">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="author" placeholder="Author">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="genres" placeholder="Genres">
+            </mat-form-field>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="pages" placeholder="Pages">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="releaseDate" placeholder="Release date">
+            </mat-form-field>
+        </div> 
+    </div>
+</form>
+
+<!-- <pre> {{ bookForm.value | json }} </pre> -->

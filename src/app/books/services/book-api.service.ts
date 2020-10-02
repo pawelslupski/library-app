@@ -13,4 +13,12 @@ export class BookApiService {
     return of(BOOKS).pipe(delay(1000));
   }
 
+  getBook(id: number): Observable<Book> {
+    return of(BOOKS[id-1]).pipe(delay(1000));
+  }
+
+  addBook(book: Book): void {
+    BOOKS.push(book);
+  }
+
 }

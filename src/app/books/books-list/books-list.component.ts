@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Book } from '../models/book';
+import { NewBookComponent } from '../new-book/new-book.component';
 import { BookApiService } from '../services/book-api.service';
 
 @Component({
@@ -10,7 +12,8 @@ import { BookApiService } from '../services/book-api.service';
 export class BooksListComponent implements OnInit {
   books: Book[];
 
-  constructor(private bookApiService: BookApiService) { }
+  constructor(private bookApiService: BookApiService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadBooks();
@@ -20,6 +23,10 @@ export class BooksListComponent implements OnInit {
     this.bookApiService.getBooks().subscribe((books) => {
       this.books = books;
     });
+  }
+
+  openNewBokModal() {
+    this.dialog.open(NewBookComponent);
   }
 
 }

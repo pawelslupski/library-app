@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>New Book Creator</h2>
+<mat-dialog-content>
+    <app-book-form #bookFormRef></app-book-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="row">
+        <div class="col">
+            <button mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button color="primary" [disabled]="bookFormRef.bookForm.invalid" (click)="createBook()">Create</button>
+        </div>
+    </div>
+</mat-dialog-actions>

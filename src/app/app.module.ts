@@ -6,16 +6,20 @@ import { BooksModule } from './books/books.module';
 import { BookApiService } from './books/services/book-api.service';
 import { AppRoutingModule } from 'src/app-routing.module';
 import { BooksRoutingModule } from './books/books-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BooksModule,
     AppRoutingModule,
-    BooksRoutingModule
+    BooksRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [BookApiService],
   bootstrap: [AppComponent]
