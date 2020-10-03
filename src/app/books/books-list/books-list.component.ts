@@ -11,6 +11,8 @@ import { BookApiService } from '../services/book-api.service';
 })
 export class BooksListComponent implements OnInit {
   books: Book[];
+  tableData: Book[];
+  selectedFilter: string = 'title';
 
   constructor(private bookApiService: BookApiService,
               private dialog: MatDialog) { }
@@ -22,11 +24,42 @@ export class BooksListComponent implements OnInit {
   loadBooks(): void {
     this.bookApiService.getBooks().subscribe((books) => {
       this.books = books;
+      this.tableData = books;
     });
   }
 
   openNewBokModal() {
     this.dialog.open(NewBookComponent);
+  }
+
+  onKey(event: any) {
+    let searchValue = event.target.value;
+    let filteredTable = this.searchTable(searchValue, this.books, this.selectedFilter);
+    this.tableData = [];
+    this.tableData = filteredTable;
+  }
+
+  private searchTable(searchValue, originalData, selectedFilter): Book[] {
+    let filteredData: Book[] = [];
+    switch (selectedFilter) {
+      case "ISBN":
+        return filteredData = originalData.filter(book => book.ISBN.includes(searchValue)); 
+        break;
+      case "Title":
+        return filteredData = originalData.filter(book => book.title.includes(searchValue));
+        break;
+      case "Author":
+        return filteredData = originalData.filter(book => book.author.includes(searchValue));
+        break;
+      default:
+        return filteredData = originalData.filter(book => book.title.includes(searchValue));
+    }
+  }
+
+  selectChangeHandler (event: any) {
+    event.preventDefault();
+    this.selectedFilter = event.target.value;
+    console.log(this.selectedFilter);
   }
 
 }

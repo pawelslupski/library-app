@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "asc-library-4f1bf": {
+      "hosting": {
+        "library-service": [
+          "asc-library-4f1bf"
+        ]
+      }
+    }
+  }
+}

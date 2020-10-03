@@ -1,7 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <table *ngIf="books && books.length > 0; else noBooksInfo" class="table table-striped cs-table">
+      <div class="card card-body">
+        <div class="form-row align-items-end">
+          <div class="form-group col-sm-4">
+            <select (change)="selectChangeHandler($event)" class="form-control">
+              <option value="" disabled selected>Choose your filter</option>
+              <option value="ISBN">ISBN</option>
+              <option value="Title">title</option>
+              <option value="Author">author</option>
+            </select>
+          </div>
+          <div class="form-group col-sm-4">
+            <input (keyup)="onKey($event)" id="search-input" class="form-control float-right" type="text" placeholder="search">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table *ngIf="books && books.length > 0; else noBooksInfo" class="table table-dark table-striped">
         <thead>
           <tr>
             <th>ISBN</th>
@@ -16,7 +35,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let book of books" class="row-book" [routerLink]="['/books', book.id]">
+          <tr *ngFor="let book of tableData" class="row-book" [routerLink]="['/books', book.id]">
             <td> {{ book.ISBN }} </td>
             <td> {{ book.title }} </td>
             <td> {{ book.author }} </td>
