@@ -1,1 +1,51 @@
-<p> {{ book.title }} </p>
+<div class="data-container">
+    <form [formGroup]="bookForm" *ngIf="book">
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label>Id:</label>
+                <input formControlName="id" type="text" class="form-control" placeholder="id">
+            </div>
+            <div class="col-sm-4">
+                <label>ISBN:</label>
+                <input formControlName="ISBN" type="text" class="form-control" placeholder="ISBN">
+            </div>
+            <div class="col-sm-4">
+                <label>Title:</label>
+                <input formControlName="title" type="text" class="form-control" placeholder="Title">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label>Author:</label>
+                <input formControlName="author" type="text" class="form-control" placeholder="author">
+            </div>
+            <div class="col-sm-4">
+                <label>Genres:</label>
+                <input formControlName="genres" type="text" class="form-control" placeholder="genres">
+            </div>
+            <div class="col-sm-4">
+                <label>Pages:</label>
+                <input formControlName="pages" type="text" class="form-control" placeholder="pages">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-3">
+                <label>Release date:</label>
+                <input formControlName="releaseDate" type="text" class="form-control" placeholder="release date">
+            </div>
+            <div class="col-sm-3">
+                <label>Client first name:</label>
+                <input formControlName="clientFirstName" type="text" class="form-control" placeholder="first name">
+            </div>
+            <div class="col-sm-3">
+                <label>Client last name:</label>
+                <input formControlName="clientLastName" type="text" class="form-control" placeholder="last name">
+            </div>
+            <div class="col-sm-3">
+                <label>Is book available?
+                    <input formControlName="isBorrowed" type="checkbox">
+                </label>
+            </div>
+        </div>
+    </form>
+</div>

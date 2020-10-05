@@ -28,7 +28,7 @@ export class BooksListComponent implements OnInit {
     });
   }
 
-  openNewBokModal() {
+  openNewBookModal() {
     this.dialog.open(NewBookComponent);
   }
 
@@ -59,7 +59,6 @@ export class BooksListComponent implements OnInit {
   selectChangeHandler (event: any) {
     event.preventDefault();
     this.selectedFilter = event.target.value;
-    console.log(this.selectedFilter);
   }
 
 }
