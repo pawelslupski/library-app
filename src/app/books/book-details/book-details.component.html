@@ -1,5 +1,11 @@
+<div class="container">
+    <div class="row">
+        <button (click)="goBack()" mat-raised-button color="accent" class="float-left">Back</button>
+    </div>
+  </div>
+
 <div class="data-container">
-    <form [formGroup]="bookForm" *ngIf="book">
+    <form [formGroup]="bookForm" *ngIf="book" class="form">
         <div class="row form-group">
             <div class="col-sm-4">
                 <label>Id:</label>
