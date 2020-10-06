@@ -23,6 +23,7 @@ export class UpdateBookComponent {
 
     updateBook() {
       try {
+        this.bookFormRef.bookForm.value.genres = this.bookFormRef.bookForm.value.genres.split(", ");
         this.bookApiService.updateBook(this.book.id, this.bookFormRef.bookForm.value);
         this.onUpdatingSuccess();
       } catch(e) { 
