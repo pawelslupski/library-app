@@ -3,7 +3,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookFormComponent } from '../book-form/book-form.component';
 import { Book } from '../models/book';
-import { NewBookComponent } from '../new-book/new-book.component';
 import { BookApiService } from '../services/book-api.service';
 
 @Component({

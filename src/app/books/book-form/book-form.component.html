@@ -4,14 +4,19 @@
             <mat-form-field>
                 <input matInput formControlName="ISBN" placeholder="ISBN" #ISBNInput>
                 <mat-error *ngIf="bookForm.get('ISBN').hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="bookForm.get('ISBN').hasError('ISBN')">The format is incorrect</mat-error>
                 <mat-error *ngIf="bookForm.get('ISBN').hasError('minlength')">Min length is 13 chars</mat-error>
                 <mat-error *ngIf="bookForm.get('ISBN').hasError('maxlength')">Max length is 13 chars</mat-error>
+                <mat-hint align="start">e.g. 99-99-99999-9</mat-hint>
                 <mat-hint align="end">{{ ISBNInput.value.length }} / 13</mat-hint>
             </mat-form-field>
         </div>
         <div class="col-sm-4">
             <mat-form-field>
                 <input matInput formControlName="title" placeholder="Title">
+                <mat-error *ngIf="bookForm.get('title').hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="bookForm.get('title').hasError('minlength')">Min length is 3 chars</mat-error>
+                <mat-error *ngIf="bookForm.get('title').hasError('maxlength')">Max length is 30 chars</mat-error>
             </mat-form-field>
         </div>
     </div>
@@ -19,11 +24,15 @@
         <div class="col-sm-4">
             <mat-form-field>
                 <input matInput formControlName="author" placeholder="Author">
+                <mat-error *ngIf="bookForm.get('author').hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="bookForm.get('author').hasError('maxlength')">Max length is 30 chars</mat-error>
             </mat-form-field>
         </div>
         <div class="col-sm-4">
             <mat-form-field>
                 <input matInput formControlName="genres" placeholder="Genres">
+                <mat-error *ngIf="bookForm.get('genres').hasError('required')">This field is required</mat-error>
+                <mat-hint align="start">e.g. 'thriller', 'horror', 'novel'</mat-hint>
             </mat-form-field>
         </div> 
     </div>
@@ -31,11 +40,17 @@
         <div class="col-sm-4">
             <mat-form-field>
                 <input matInput formControlName="pages" placeholder="Pages">
+                <mat-error *ngIf="bookForm.get('pages').hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="bookForm.get('pages').hasError('pages')">Should be number from 10 to 1500</mat-error>
+                <mat-hint align="start">e.g. 999</mat-hint>
             </mat-form-field>
         </div>
         <div class="col-sm-4">
             <mat-form-field>
                 <input matInput formControlName="releaseDate" placeholder="Release date">
+                <mat-error *ngIf="bookForm.get('releaseDate').hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="bookForm.get('releaseDate').hasError('releaseDate')">The format is incorrect</mat-error>
+                <mat-hint align="start">e.g. 01-01-1990</mat-hint>
             </mat-form-field>
         </div> 
     </div>

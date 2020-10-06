@@ -9,49 +9,71 @@
         <div class="row form-group">
             <div class="col-sm-4">
                 <label>Id:</label>
-                <input formControlName="id" type="text" class="form-control" placeholder="id">
+                <input formControlName="id" type="text" class="form-control" placeholder="id" disabled>
             </div>
             <div class="col-sm-4">
                 <label>ISBN:</label>
-                <input formControlName="ISBN" type="text" class="form-control" placeholder="ISBN">
+                <input formControlName="ISBN" type="text" class="form-control" placeholder="ISBN" disabled>
             </div>
             <div class="col-sm-4">
                 <label>Title:</label>
-                <input formControlName="title" type="text" class="form-control" placeholder="Title">
+                <input formControlName="title" type="text" class="form-control" placeholder="Title" disabled>
             </div>
         </div>
         <div class="row form-group">
             <div class="col-sm-4">
                 <label>Author:</label>
-                <input formControlName="author" type="text" class="form-control" placeholder="author">
+                <input formControlName="author" type="text" class="form-control" placeholder="author" disabled>
             </div>
             <div class="col-sm-4">
                 <label>Genres:</label>
-                <input formControlName="genres" type="text" class="form-control" placeholder="genres">
+                <input formControlName="genres" type="text" class="form-control" placeholder="genres" disabled>
             </div>
             <div class="col-sm-4">
                 <label>Pages:</label>
-                <input formControlName="pages" type="text" class="form-control" placeholder="pages">
+                <input formControlName="pages" type="text" class="form-control" placeholder="pages" disabled>
             </div>
         </div>
         <div class="row form-group">
             <div class="col-sm-3">
                 <label>Release date:</label>
-                <input formControlName="releaseDate" type="text" class="form-control" placeholder="release date">
+                <input formControlName="releaseDate" type="text" class="form-control" placeholder="release date" disabled>
             </div>
             <div class="col-sm-3">
                 <label>Client first name:</label>
-                <input formControlName="clientFirstName" type="text" class="form-control" placeholder="first name">
+                <input formControlName="clientFirstName" type="text" class="form-control" placeholder="first name" disabled>
             </div>
             <div class="col-sm-3">
                 <label>Client last name:</label>
-                <input formControlName="clientLastName" type="text" class="form-control" placeholder="last name">
+                <input formControlName="clientLastName" type="text" class="form-control" placeholder="last name" disabled>
             </div>
             <div class="col-sm-3">
-                <label>Is book available?
-                    <input formControlName="isBorrowed" type="checkbox">
-                </label>
+                <label>Is available?:</label>
+                <input formControlName="isBorrowed" type="text" class="form-control" placeholder="yes/no" disabled>
             </div>
         </div>
     </form>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card card-body">
+          <div class="form-row align-items-end">
+            <div class="form-group col-sm-8">
+              <select [disabled]="book.isBorrowed" (change)="selectChangeHandler($event)" class="form-control">
+                <option value="" disabled selected>Choose a borrower</option>
+                <option value="Marcin Kozacki">Marcin Kozacki</option>
+                <option value="Konrad Przedziwny">Konrad Przedziwny</option>
+                <option value="Wojciech Kulawiec">Wojciech Kulawiec</option>
+                <option value="Damian Smutas">Damian Smutas</option>
+                <option value="Radosław Majdanek">Radosław Majdanek</option>
+              </select>
+            </div>
+            <div class="form-group col-sm-4">
+                <button [disabled]="book.isBorrowed" (click)="borrowTheBook(book)" mat-raised-button color="primary" class="borrow-btn float-right">Borrow</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
