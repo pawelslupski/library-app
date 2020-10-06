@@ -14,15 +14,19 @@ export class BookApiService {
   }
 
   getBook(id: number): Observable<Book> {
-    return of(BOOKS[id-1]).pipe(delay(1000));
+    return of(BOOKS.find(book => book.id == id)).pipe(delay(1000));
   }
 
-  addBook(book: Book): void{
+  addBook(book: Book): void {
     BOOKS.push(book);
   }
 
-  // updateBook(id: number, book): void {
-  //   BOOKS.splice(id-1, 1, book);
-  // }
+  deleteBook(id: number): void {
+    BOOKS.splice(BOOKS.findIndex(book => book.id == id), 1);
+  }
 
+  updateBook(id: number, book: Book): void {
+    book.id = id;
+    BOOKS.splice(BOOKS.findIndex(book => book.id == id), 1, book);
+  }
 }

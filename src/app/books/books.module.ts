@@ -7,9 +7,10 @@ import { MaterialModule } from '../material/material.module';
 import { NewBookComponent } from './new-book/new-book.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateBookComponent } from './update-book/update-book.component';
 
 @NgModule({
-  declarations: [BooksListComponent, BookDetailsComponent, NewBookComponent, BookFormComponent],
+  declarations: [BooksListComponent, BookDetailsComponent, NewBookComponent, BookFormComponent, UpdateBookComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -17,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  entryComponents: [NewBookComponent],
+  entryComponents: [NewBookComponent, UpdateBookComponent],
   exports: [BooksListComponent]
 })
 export class BooksModule { }

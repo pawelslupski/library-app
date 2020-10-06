@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookFormComponent } from '../book-form/book-form.component';
 import { BookApiService } from '../services/book-api.service';
+import { BOOKS } from '../services/mock-data';
 
 @Component({
   selector: 'app-new-book',
@@ -18,6 +19,7 @@ export class NewBookComponent {
 
   createBook() {
     try {
+      this.bookFormRef.bookForm.value.id = BOOKS.length + 1;
       this.bookApiService.addBook(this.bookFormRef.bookForm.value);
       this.onCreatingSuccess();
     } catch(e) { 
@@ -28,6 +30,7 @@ export class NewBookComponent {
   private onCreatingSuccess() {
     this.dialogRef.close();
     this.toast.open('Book has been created!', '', { panelClass: 'toast-success' });
+    console.log(BOOKS);
   }
 
   private onCreatingFailure(e) {

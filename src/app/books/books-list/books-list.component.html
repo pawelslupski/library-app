@@ -44,7 +44,9 @@
             <td> {{ book.releaseDate }} </td>
             <td> {{ !book.isBorrowed }} </td>
             <td> {{ book.clientFirstName }} {{ book.clientLastName }} </td>
-            <td> ACTION PLACEHOLDER </td>
+            <td><button (click)="openEditBookModal(book, $event)" mat-raised-button color="primary" class="edit-btn float-left">Edit</button>
+                <button (click)="removeBook(book, $event)" mat-raised-button color="warn" class="delete-btn float-left">Del</button>
+            </td>
           </tr>
         </tbody>
       </table>

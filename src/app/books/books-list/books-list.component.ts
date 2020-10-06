@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Book } from '../models/book';
 import { NewBookComponent } from '../new-book/new-book.component';
 import { BookApiService } from '../services/book-api.service';
+import { UpdateBookComponent } from '../update-book/update-book.component';
 
 @Component({
   selector: 'app-books-list',
@@ -30,6 +31,11 @@ export class BooksListComponent implements OnInit {
 
   openNewBookModal() {
     this.dialog.open(NewBookComponent);
+  }
+
+  openEditBookModal(book, $event) {
+    event.stopPropagation();
+    this.dialog.open(UpdateBookComponent, {data: book});
   }
 
   onKey(event: any) {
@@ -61,4 +67,8 @@ export class BooksListComponent implements OnInit {
     this.selectedFilter = event.target.value;
   }
 
+  removeBook(book: Book, event) {
+    event.stopPropagation();
+    this.bookApiService.deleteBook(book.id);
+  }
 }
