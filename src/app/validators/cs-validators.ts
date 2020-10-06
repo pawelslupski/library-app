@@ -26,9 +26,7 @@ export class CustomValidators {
 
     static ISBN(control: AbstractControl) {
         let regex = /^[0-9]{2}[-][0-9]{2}[-][0-9]{5}[-][0-9]{1}$/g;
-        const minPages = 10;
-        const maxPages = 1500;
-        if (!((control.value < minPages || control.value > maxPages) && regex.test(control.value))) {
+        if (!regex.test(control.value)) {
             return {
                 pages: true
             }

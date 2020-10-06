@@ -24,26 +24,26 @@
         <thead>
           <tr>
             <th>ISBN</th>
-            <th>title</th>
-            <th>author</th>
-            <th>genres</th>
-            <th>pages</th>
-            <th>release date</th>
-            <th>available</th>
-            <th>client</th>
-            <th>action</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genres</th>
+            <th>Pages</th>
+            <th>Release date</th>
+            <th>Available</th>
+            <th>Client</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let book of tableData" class="row-book" [routerLink]="['/books', book.id]">
-            <td> {{ book.ISBN }} </td>
-            <td> {{ book.title }} </td>
-            <td> {{ book.author }} </td>
-            <td> {{ book.genres }} </td>
-            <td> {{ book.pages }} </td>
-            <td> {{ book.releaseDate }} </td>
-            <td> {{ !book.isBorrowed }} </td>
-            <td> {{ book.clientFirstName }} {{ book.clientLastName }} </td>
+            <td> {{ book?.ISBN }} </td>
+            <td> {{ book?.title }} </td>
+            <td> {{ book?.author }} </td>
+            <td> {{ book?.genres | genresShow }} </td>
+            <td> {{ book?.pages }} </td>
+            <td> {{ book?.releaseDate }} </td>
+            <td> {{ !book?.isBorrowed }} </td>
+            <td> {{ book?.clientFirstName }} {{ book?.clientLastName }} </td>
             <td><button (click)="openEditBookModal(book, $event)" mat-raised-button color="primary" class="edit-btn float-left">Edit</button>
                 <button (click)="removeBook(book, $event)" mat-raised-button color="warn" class="delete-btn float-left">Del</button>
             </td>

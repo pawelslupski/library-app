@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/validators/cs-validators';
 
 @Component({
@@ -21,10 +21,10 @@ export class BookFormComponent {
       ISBN: ['', { validators: [Validators.required, Validators.minLength(13), Validators.maxLength(13), CustomValidators.ISBN] }],
       title: ['', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(30)] }],
       author: ['', { validators: [Validators.required, Validators.maxLength(30)] }],
-      genres: ['', { validators: [Validators.required] }],
+      genres: ['' , { validators: [Validators.required] }],
       pages: ['', { validators: [CustomValidators.pages] }],
       releaseDate: ['', { validators: [Validators.required, CustomValidators.releaseDate] }],
     })
   }
-
+ 
 }

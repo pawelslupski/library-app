@@ -8,9 +8,10 @@ import { NewBookComponent } from './new-book/new-book.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateBookComponent } from './update-book/update-book.component';
+import { GenresShowPipe } from './pipes/genres-show.pipe';
 
 @NgModule({
-  declarations: [BooksListComponent, BookDetailsComponent, NewBookComponent, BookFormComponent, UpdateBookComponent],
+  declarations: [BooksListComponent, BookDetailsComponent, NewBookComponent, BookFormComponent, UpdateBookComponent, GenresShowPipe],
   imports: [
     CommonModule,
     RouterModule,
@@ -19,6 +20,6 @@ import { UpdateBookComponent } from './update-book/update-book.component';
     ReactiveFormsModule
   ],
   entryComponents: [NewBookComponent, UpdateBookComponent],
-  exports: [BooksListComponent]
+  exports: [BooksListComponent, GenresShowPipe]
 })
 export class BooksModule { }

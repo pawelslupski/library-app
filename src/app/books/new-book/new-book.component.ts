@@ -20,6 +20,7 @@ export class NewBookComponent {
   createBook() {
     try {
       this.bookFormRef.bookForm.value.id = BOOKS.length + 1;
+      this.bookFormRef.bookForm.value.genres = this.bookFormRef.bookForm.value.genres.split(", ");
       this.bookApiService.addBook(this.bookFormRef.bookForm.value);
       this.onCreatingSuccess();
     } catch(e) { 
